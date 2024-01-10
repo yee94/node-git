@@ -9,9 +9,9 @@ RUN  echo 'http://dl-cdn.alpinelinux.org/alpine/v3.5/main' > /etc/apk/repositori
     && echo "Asia/Shanghai" > /etc/timezone 
 
 # Add dependencies to get Bun working on Alpine
-COPY ./glibc-2.26-r1.apk /glibc-2.26-r1.apk
-RUN apk add --allow-untrusted --force-overwrite /glibc-2.26-r1.apk
-RUN rm /glibc-2.26-r1.apk
+COPY ./glibc-2.28-r0.apk /glibc-2.28-r0.apk
+RUN apk add --allow-untrusted --force-overwrite /glibc-2.28-r0.apk
+RUN rm /glibc-2.28-r0.apk
 
 # Install bun dependencies glibc
 RUN npm i -g bun
