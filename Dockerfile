@@ -1,10 +1,10 @@
-FROM node:10.10-alpine
+FROM node:21-alpine
 
-RUN apk update && apk add git \
-    && npm i -g yarn
+RUN npm i -g --force yarn pnpm
 
-RUN  echo 'http://mirrors.ustc.edu.cn/alpine/v3.5/main' > /etc/apk/repositories \
-    && echo 'http://mirrors.ustc.edu.cn/alpine/v3.5/community' >>/etc/apk/repositories \
-&& apk update && apk add tzdata \
-&& ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \ 
-&& echo "Asia/Shanghai" > /etc/timezone
+RUN  echo 'http://dl-cdn.alpinelinux.org/alpine/v3.5/main' > /etc/apk/repositories \
+    && echo 'http://dl-cdn.alpinelinux.org/alpine/v3.5/community' >>/etc/apk/repositories \
+    && apk update && apk add tzdata curl bash \
+    && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \ 
+    && echo "Asia/Shanghai" > /etc/timezone \
+    && rm -rf /var/cache/apk/* 
