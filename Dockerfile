@@ -17,3 +17,5 @@ RUN rm /glibc-2.28-r0.apk
 RUN npm i -g bun
 
 RUN rm -rf /var/cache/apk/* 
+
+WORKDIR /app
